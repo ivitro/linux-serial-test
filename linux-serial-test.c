@@ -712,7 +712,7 @@ static void setup_serial_port(int baud)
 			perror("Error getting RS-485 mode");
 		}
 	} else {
-		if (rs485.flags & SER_RS485_ENABLED) {
+		if (rs485.flags & SER_RS485_ENABLED && !_cl_rts_cts) {
 			printf("RS485 already enabled on port, ignoring delays if set\n");
 		} else {
 			if (_cl_rs485_after_delay >= 0) {
